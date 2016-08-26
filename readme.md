@@ -3,7 +3,7 @@
 ## Installation
 
 easy code with cmd
-`npm install -g http://10.17.1.139/zw/pjacli.git`
+`npm install -g http://10.17.1.139/zw/pjacli/repository/archive.tar.gz?ref=master`
 
 ## Features
 
