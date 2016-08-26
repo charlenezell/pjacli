@@ -1,0 +1,29 @@
+{
+  "name": "pjacli",
+  "version": "0.0.1",
+  "description": "pja util commandline tool",
+  "private": true,
+  "bin": {
+    "pjacli": "./bin/pjacli"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "author": {
+    "name": "zw",
+    "email": "huangguangyao@rt.com",
+    "url": "http://10.17.1.139/zw"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://10.17.1.139/zw/pjacli"
+  },
+  "license": "MIT",
+  "bugs": "http://10.17.1.139/zw/pjacli/issues",
+  "dependencies": {
+    "commander": "~2.0.0",
+    "autocmdr": "~0.0.7"
+  },
+  "devDependencies": {
+  }
+}
