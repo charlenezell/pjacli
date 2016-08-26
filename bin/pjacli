@@ -3,14 +3,6 @@
 
 var program  = require('commander');
 
-// require('autocmdr/lib/logger')(program);
-// require('autocmdr/lib/loader')(program);
-// require('autocmdr/lib/completion')(program);
-// require('autocmdr/lib/package')(program);
-// require('autocmdr/lib/config')(program);
-// require('autocmdr/lib/help')(program);
-
-
 program
 	.command('doudouls', '列出游戏的命令')
     .command('doudoubuild','直接包装原有html无需ftl变量的简单形式')
