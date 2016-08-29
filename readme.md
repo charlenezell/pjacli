@@ -19,3 +19,7 @@
     帮助见`pjacli doudoubuild -h`
     ![](./resource/2016-08-26_160757.png)
 
+3. 传入游戏配置（见demo目录的a.json）输出一个html（有配置的游戏的名字，链接和二维码），作为一个标准化的提交形式
+    帮助见`pjacli doudouqr -h`
+    ![](./resource/2016-08-29_181437.png)
+    值得注意的是依赖了qr生成器依赖了node-canvas,这个得要windows编译so，自己google一下吧~
