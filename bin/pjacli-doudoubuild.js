@@ -140,6 +140,7 @@ function build(gameName, callback) {
     $("script[src*='code_statistics/cnzz.js']").remove();
     $("script[src*='code_statistics/7724common.js']").replaceWith('<script src="../7724common.js"></script>')
     $("script[src*=7724loading]").remove();
+    $("script[src*=api.51h5.com/open/sdk.php]").remove();
     $("body").prepend(bodyHead).append(bodyTail);
     // console.log($.html())
     fs.writeFileSync(g+"index.html",$.html(),"utf8");
