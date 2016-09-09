@@ -1,0 +1,10 @@
+@charset "utf-8";
+@import "mixins";
+@import "variables";
+
+@import "./sprites/order.png";
+body{
+    @include toe;
+    @include order_1;
+    @include order_2;
+}

@@ -1,0 +1,27 @@
+{
+  "name": "zt-2016aq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-util": "^3.0.7",
+    "run-sequence": "^1.2.2",
+    "through2": "^2.0.1",
+    "zellsprite": "^1.0.14"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "gulp-hb": "^5.1.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-ruby-sass": "^2.1.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-babel": "^6.1.2"
+  }
+}

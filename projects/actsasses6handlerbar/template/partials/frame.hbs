@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{data.T}}</title>
+<meta name="description" content="{{data.D}}" />
+<meta name="keywords" content="{{data.K}}" />
+<link type="text/css" href="http://resource.a0bi.com/resource/style/css.css" rel="stylesheet" />
+<link href="http://resource.a0bi.com/resource/js/nav/commonNav.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="{{data.destPath}}style/common.css?v={{data.commonVersion}}" />
+<link rel="stylesheet" href="{{data.destPath}}style/{{pageName}}.css?v={{data.commonVersion}}" />
+<script type="text/javascript" src="http://resource.a0bi.com/resource/js/lib/jquery-min.js"></script>
+<script type="text/javascript" src="http://resource.a0bi.com/resource/js/nav/in-min.js"></script>
+<script type="text/javascript">
+var ST_startTime=new Date();
+var ST_DOMLoadedTime=ST_LoadTime=0;
+$(function(){
+  ST_DOMLoadedTime=new Date()-ST_startTime;
+});
+$(window).load(function(){
+  ST_LoadTime=new Date()-ST_startTime;
+  /*setDate*/
+  window.setUserModelValue&&setUserModelValue("ST_DOMLoadedTime",ST_DOMLoadedTime);
+  window.setUserModelValue&&setUserModelValue("ST_LoadTime",ST_LoadTime);
+  window.DC_SendUserModelData&&DC_SendUserModelData();
+});
+</script>
+<script type="text/javascript">
+  var g_shareword='{{data.shareWord}}';
+  var g_shareimg='{{data.shareImg}}';
+  var g_sharelink='{{data.shareLink}}';
+</script>
+</head>
+<body>
+  <!--公用导航-->
+  <div id="baseNav"></div>
+  <div class="mainBg">
+   {{> @partial-block }}
+   <div class="sidebar sidebar_bg">
+     <span class="sidebar__item"><a href="http://aoya.100bt.com/zt-2016shengyou/#" target="_blank"><span class="sidebar__t">海选报名</span><span class="sidebar__time">9.10--9.13</span></a></span>
+     <span class="sidebar__item statisticBtn" data-stname="chusai"><a href="#" target="_blank" data-date="2016-09-14T00:00:00" data-tips="不好意思！初赛9月14日才能查看"><span class="sidebar__t">官网初赛</span><span class="sidebar__time">9.14--9.22</span></a></span>
+     <span class="sidebar__item statisticBtn" data-stname="juesai"><a href="#" target="_blank" data-date="2016-09-23T00:00:00" data-tips="不好意思！决赛9月23日才能查看"><span class="sidebar__t">游戏决赛</span><span class="sidebar__time">9.23--9.29</span></a></span>
+     <span class="sidebar__item"><a href="#" target="_blank" data-date="2016-09-30T00:00:00" data-tips="不好意思！决赛9月30日才能查看"><span class="sidebar__t">颁发奖励</span><span class="sidebar__time">9.30--10.6</span></a></span>
+     <span class="sidebar__item"><a href="###" class="sidebarshare">分享</a></span>
+     <span class="sidebar__item sidebar__item--top"><a href="#"><span class="sidebar__icon sidebar__icon--top"></span><span class="sidebar__t">返回顶部</span></a></span>
+   </div>
+  </div>
+    <script type="text/javascript" src="http://resource.a0bi.com/resource/js/util/newcommon/util.js"></script>
+    <script type="text/javascript" src="http://resource.a0bi.com/resource/js/util/newcommon/login.js"></script>
+    <script src="http://resource.a0bi.com/resource/js/util/newcommon/common.js"></script>
+    <script src="http://resource.a0bi.com/gwActivity/common/common.js?v=2"></script>
+    <script src="http://resource.a0bi.com/resource/js/plugins/sharerenderer.js"></script>
+    <script type="text/javascript" src="http://www.100bt.com/resource/js/lib/jquery.pagination.js"></script>
+    <script type="text/javascript">
+        window.UEDITOR_HOME_URL = "http://qq.100bt.com/ueditor1.4/";
+        window.UEDITOR_HOME_URL_ISALL=true;
+    </script>
+    <script type="text/javascript" src="http://www.100bt.com/comment/common/commentBase.js"></script>
+    <script type="text/javascript" src="{{data.destPath}}script/common.js?v={{data.commonVersion}}"></script>
+    <script type="text/javascript" src="{{data.destPath}}script/{{pageName}}.js?v={{data.commonVersion}}"></script>
+    <script type="text/javascript" src="http://dc.100bt.com/js/dc.js"></script>
+    <script type="text/javascript" src="http://www.100bt.com/resource/js/lib/bdStatistic.js"></script>
+
+    <script type="text/html" id="p_baoming">
+      <div class="baomingbg box01">
+        <form id="baomingForm">
+          <div class="baomingForm__inner">
+             <div class="clearfix">
+               <label class="baomingSelectItem" for="itemType1">
+                     <input type="radio" name="itemType" id="itemType1" value="1" checked />
+                   </label>
+               <label class="baomingSelectItem" for="itemType2">
+                     <input type="radio" name="itemType" id="itemType2" value="2" />
+                   </label>
+               <label class="baomingSelectItem" for="itemType3">
+                     <input type="radio" name="itemType" id="itemType3" value="3" />
+                   </label>
+               <label class="baomingSelectItem" for="itemType4">
+                     <input type="radio" name="itemType" id="itemType4" value="4" />
+                   </label>
+             </div>
+             <div class="bmf_l1">
+               <input type="hidden" name="avatar" id="" value="${avatar}" />
+               <input type="text" class="baomingF__duoduo" name="duoduo" id="" disabled value="${duoduoId}" />
+               <input type="text" class="baomingF__qq" name="qq" id="" placeholder="*请输入qq号" />
+             </div>
+              <div class="bmf_l2">
+              <input type="text" class="baomingF__invitecode" name="recDuoduo" id="" placeholder="请输入邀请码"/>
+              </div>
+              <textarea class="baomingF__description" name="declaration" placeholder="*请输入80字以内宣言"></textarea>
+              <input type="text" class="baomingF__youkuurl" name="videoLink" id="" placeholder="*请输入优酷视频地址"/>
+          </div>
+          <div class="p_ctrl tC">
+              <input type="submit" value="提交报名" class="p_btn01 p_btn01__submit" />
+          </div>
+      </form>
+      </div>
+    </script>
+    <script type="text/html" id="p_bsxq">
+      <div class="bsxqbg box01">
+        <a class="box01__close" href="###"></a>
+        <div class="p_ctrl tC">
+          <a href="###" class="p_btn01 p_btn01__sure">知道啦</a>
+        </div>
+      </div>
+    </script>
+    <script type="text/html" id="p_bmzn">
+      <div class="bmznbg box01 pr">
+        <a class="p_detailLink p_btn01__sure" href="http://aoya.100bt.com/ninfomation/249229.html" target="_blank"></a>
+        <div class="p_ctrl tC">
+          <a href="###" class="p_btn01 p_btn01__sure">知道啦</a>
+        </div>
+      </div>
+    </script>
+    <script type="text/html" id="p_alert">
+      <div class="alertbg box01 pr">
+        <table><tr><td>
+        ${content}
+        </td></tr></table>
+        ${ctrls}
+      </div>
+    </script>
+    <script type="text/html" id="p_yqhy">
+      <div class="yqhybg box01 pr">
+        <div class="copyItems">
+          <input type="text" name="" id="" class="p_inviteCode" value="${code}" disabled />
+          <input type="hidden" name=""  class="copyValue" value="http://aoya.100bt.com/zt-2016shengyou/"/>
+          <a href="###" class="p_copy copyBtn p_btn01">复制专属链接</a>
+        </div>
+        <div class="p_ctrl tC">
+          <a href="###" class="p_btn01 p_btn01__sure">知道啦</a>
+        </div>
+      </div>
+    </script>
+    <script type="text/html" id="p_myPrize">
+      <div class="myprizebg box01 pr">
+        <div class="p_scrollcontent">
+            ${content}
+            <div class="pageStyle01">道具兑换码，登录<a class="pageStyle01--sp" href="http://aoya.100bt.com/" target="_blank">【奥雅之光官网】</a>,<br/>
+            在<span class="pageStyle01--sp">【空中花园】</span>的<span class="pageStyle01--sp">官网奖励兑换处</span>兑换！</div>
+            <div class="pageStyle01">多多卡可以进入<span class="pageStyle01--sp">【百田充值中心】</span>进行充值！</div>
+        </div>
+        <div class="p_ctrl tC">
+          <a href="http://aoya.100bt.com/" target="_blank" class="p_btn01 p_btn01__sure">去兑换道具</a>
+          <a href="###" class="p_btn01 p_btn01__sure">知道了</a>
+        </div>
+      </div>
+    </script>
+    <script type="text/html" id="p_commonpop">
+      <div class="commonpopbg box02">
+          <a class="box02__close" href="###"></a>
+          <table>
+            <tr>
+              <td>${content}</td>
+            </tr>
+          </table>
+          <div class="p_ctrl tC">
+            <a href="###" class="p_btn01 p_btn01__sure">知道啦</a>
+        </div>
+      </div>
+    </script>
+</body>
+</html>

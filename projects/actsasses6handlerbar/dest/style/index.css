@@ -1,0 +1,20 @@
+body {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+  background-image: url(../../style/sprites/order.png);
+  width: 24px;
+  height: 24px;
+  background-position: 0px -0px;
+  background-image: url(../../style/sprites/order.png);
+  width: 24px;
+  height: 24px;
+  background-position: -29px -0px; }
+  @media (max-width: 540px) {
+    body {
+      background-position: 0 0;
+      background-size: 220.83333% 220.83333%; } }
+  @media (max-width: 540px) {
+    body {
+      background-position: 100% 0;
+      background-size: 220.83333% 220.83333%; } }
