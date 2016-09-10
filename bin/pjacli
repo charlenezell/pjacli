@@ -7,7 +7,7 @@ program
 	.command('doudouls', '列出游戏的命令')
     .command('doudoubuild','直接包装原有html无需ftl变量的简单形式')
     .command('doudouqr','提供一个json，输出一个二维码的预览')
-    .command('new','创建新项目模板(act01=>[sass,babel,handlebars,sprite])')
+    .command('new',"输入projectType创建一个目录在当前目录")
 	.parse(process.argv)
 
 

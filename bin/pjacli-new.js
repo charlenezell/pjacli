@@ -6,27 +6,26 @@
 var commander = require("commander");
 // var fs = require("fs");
 var path = require("path");
+var vfs = require('vinyl-fs');
 // var ncp = require('ncp').ncp;
 // var async = require("async");
 // var glob = require("glob");
-var cpy=require("cpy")
+// var cpy=require("cpy")
 // ncp.limit = 16;
 // var Util = require("util");
 var codeBase = __dirname;
 commander
 	.usage('<projectType ...>')
-	.description("输入projectType创建一个目录在当前目录")
+	.description('创建新项目模板(act01=>[sass,babel,handlebars,sprite])')
 	.action(function (input) {
 		var a = {
 			act01: {
-				paths: [path.join(codeBase, "../projects/actsasses6handlerbar/*")],
+				paths: [path.join(codeBase, "../projects/actsasses6handlerbar/**/*"),"!"+path.join(codeBase, "../projects/actsasses6handlerbar/style/sprites/*")],
 			}
 		}
 		var source = a[input];
 		if (source) {
-			cpy(source.paths, process.cwd(),{parents:true}).then(() => {
-				console.log('files copied');
-			});
+			vfs.src(source.paths).pipe(vfs.dest("./"));
 		} else {
 			throw new Error("项目类型不存在");
 		}

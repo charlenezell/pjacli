@@ -25,10 +25,10 @@
     "autocmdr": "~0.0.7",
     "cheerio": "^0.22.0",
     "commander": "^2.0.0",
-    "cpy": "^4.0.1",
     "glob": "^7.0.6",
     "lodash": "^4.15.0",
     "qrcode": "^0.4.4",
+    "vinyl-fs": "^2.4.3",
     "winattr": "^1.1.0",
     "winston": "^2.2.0"
   },
