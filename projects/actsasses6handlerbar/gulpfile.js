@@ -7,6 +7,7 @@ var sass = require('gulp-ruby-sass');
 var babel = require("gulp-babel");
 var uglify = require('gulp-uglify');
 var cssmin = require('gulp-minify-css');
+var helpers=require("handlebars-helpers")();
 var rename = require("gulp-rename");
 var zreplace = require("./local/replaceFilePath.js");
 var hb = require('gulp-hb');
@@ -81,7 +82,7 @@ gulp.task("buildHtml", function() {
                     .substr(0, shortPath.length - extension.length)
                     .replace(WHITESPACE_CHARACTERS, WORD_SEPARATOR);
             }
-        }).helpers(require('handlebars-layouts')))
+        }).helpers(require('handlebars-layouts')).helpers(helpers))
         .pipe(rename(function(path) {
             path.extname = ".html";
             return path;
