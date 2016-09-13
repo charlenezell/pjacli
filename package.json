@@ -25,9 +25,11 @@
     "autocmdr": "~0.0.7",
     "cheerio": "^0.22.0",
     "commander": "^2.0.0",
+    "del": "^2.2.2",
     "glob": "^7.0.6",
     "lodash": "^4.15.0",
     "qrcode": "^0.4.4",
+    "request": "^2.74.0",
     "vinyl-fs": "^2.4.3",
     "winattr": "^1.1.0",
     "winston": "^2.2.0"
