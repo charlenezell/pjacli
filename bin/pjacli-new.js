@@ -25,7 +25,9 @@ commander
 		}
 		var source = a[input];
 		if (source) {
-			vfs.src(source.paths).pipe(vfs.dest("./"));
+			vfs.src(source.paths,{
+				dot:true
+			}).pipe(vfs.dest("./"));
 		} else {
 			throw new Error("项目类型不存在");
 		}
