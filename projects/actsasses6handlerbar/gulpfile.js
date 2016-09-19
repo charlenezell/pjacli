@@ -82,7 +82,9 @@ gulp.task("buildHtml", function() {
                     .substr(0, shortPath.length - extension.length)
                     .replace(WHITESPACE_CHARACTERS, WORD_SEPARATOR);
             }
-        }).helpers(require('handlebars-layouts')).helpers(helpers))
+        }).helpers(require('handlebars-layouts'))
+        // .helpers(helpers)
+        )
         .pipe(rename(function(path) {
             path.extname = ".html";
             return path;

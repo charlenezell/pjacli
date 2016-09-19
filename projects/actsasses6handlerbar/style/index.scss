@@ -2,9 +2,6 @@
 @import "mixins";
 @import "variables";
 
-@import "./sprites/order.png";
 body{
-    @include toe;
-    @include order_1;
-    @include order_2;
+background-color:red;
 }
