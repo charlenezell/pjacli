@@ -55,9 +55,10 @@ commander
 					var rst = results[0].map(function(v, k) {
 						// console.log(data.urls[k]);
 						return `
-					<div class="gameItem gameItem--${getType(data.urls[k][4])}">
+					<div id="id_${data.urls[k][0]}" class="gameItem gameItem--${getType(data.urls[k][4])}">
 						<div>
 							<h1>${data.urls[k][0]}</h1>
+							<h2>分享语: <input type="text" name="" id="" value="${data.urls[k][3]}"/></h2>
 						</div>
 						<div class="gameItem__type">
 							<div>doudou</div>
@@ -77,7 +78,16 @@ commander
 						</div>
 					</div>`;
 					});
-
+					var c=results[0].map(function(v,k){
+						return `
+						<span style="display:inline-block;margin:10px 5px;">
+						<a style="display:block" href="#id_${data.urls[k][0]}" class="gameThumb gameThumb--${getType(data.urls[k][4])}">${k+1}.${data.urls[k][0]}</a>
+						<input type="text" style="width:80px;display:block" value="${data.urls[k][2].replace("http://www.doudou.in/play/","")}" />
+						</span>
+						`
+					});
+					var w=['<div class="gameThumbs">',...c,'</div>'].join("");
+					rst.unshift(w);
 					rst.unshift(`<!DOCTYPE html>
 							<html lang="en">
 							<head>
@@ -89,6 +99,10 @@ commander
 												padding:10px;
 												background-color:#e0e0e0;
 											}
+											.gameThumb{}
+											.gameThumb--h{color:red;}
+											.gameThumb--m{color:blue;}
+											.gameThumb--l{color:green;}
 											.gameItem--h h1{color:red;}
 											.gameItem--m h1{color:blue;}
 											.gameItem--l h1{color:green;}
