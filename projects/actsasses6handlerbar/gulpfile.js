@@ -7,7 +7,9 @@ var sass = require('gulp-ruby-sass');
 var babel = require("gulp-babel");
 var uglify = require('gulp-uglify');
 var cssmin = require('gulp-minify-css');
-var helpers=require("handlebars-helpers")();
+// var helpers=require("handlebars-helpers")();
+var rev = require("gulp-rev");
+var replace = require("zell-grr");
 var rename = require("gulp-rename");
 var zreplace = require("./local/replaceFilePath.js");
 var hb = require('gulp-hb');
@@ -37,7 +39,7 @@ var cssminConfig = {
 gulp.task("buildjs", function() {
     return gulp.src("./script/*.es6")
         .pipe(babel())
-        .pipe(uglify(uglifyConfig))
+        // .pipe(uglify(uglifyConfig))
         .pipe(gulp.dest("./dest/script/"))
         .pipe(livereload());
 });
@@ -45,7 +47,7 @@ gulp.task("buildcss", function() {
     return sass(["./style/*.scss"], {
             sourcemap: false,
             emitCompileError: false,
-            "load-path": "E:/projectA/source/web/resource/marketnew/common/src/scss/common"
+            "load-path": "E:/projectA/source/web/resource/marketnew/common/src/scss"
         })
         .pipe(autoprefixer())
         .pipe(zreplace(/style\/sprites/img, "../../style/sprites"))
@@ -85,6 +87,9 @@ gulp.task("buildHtml", function() {
         }).helpers(require('handlebars-layouts'))
         // .helpers(helpers)
         )
+        .data({
+            now:((new Date()-0)+"").substring(5)
+        })
         .pipe(rename(function(path) {
             path.extname = ".html";
             return path;
@@ -97,15 +102,57 @@ gulp.task("buildHtml", function() {
 gulp.task("watchhtml", function() {
     return gulp.watch(["./template/**/*.{js,hbs}","./data/*.json"], ["buildHtml"]);
 });
-
+gulp.task("build",function(cb){
+    runSequence("buildHtml", "buildjs", "buildcss", function() {
+        cb();
+    });
+})
 gulp.task("default", function(cb) {
-    runSequence("watchjs", "watchcss", "watchhtml", "buildHtml", "buildjs", "buildcss", function() {
+    runSequence("watchjs", "watchcss", "watchhtml", "build", function() {
         livereload.listen();
         cb();
     });
+});
+gulp.task("revImg", ["makeLocalRevMap"], function() {
+  var mani = gulp.src("./rev-manifest.json");
+  return gulp.src("./dest/**/*.css")
+    .pipe(replace({
+      manifest: mani,
+      modifyUnreved: function(name, base) {
+        var a = path.relative(path.dirname(base), path.resolve("style", name));
+        a = a.replace(/\\/g, "/");
+        return a;
+      },
+      modifyReved: function(name, unrevName, base) {
+        var rev = path.basename(name).split("-").pop().split(".")[0];
+        var a = path.relative(path.dirname(base), path.resolve("style",unrevName)) + "?" + rev;
+        a = a.replace(/\\/g, "/");
+        return a;
+      },
+      dosthwithContent:function(contents,rename,file){
+         var reg=new RegExp('(?:\\\('+"http://resource.a0bi.com/marketnew/"+rename.unreved+'\\\))',"img");
+                var rev = path.basename(rename.reved).split("-").pop().split(".")[0];
+                var _contents=contents.replace(reg,"("+"http://resource.a0bi.com/marketnew/"+rename.unreved+"?"+rev+")");
+                reg=new RegExp('(?:([\'"])'+"http://resource.a0bi.com/marketnew/"+rename.unreved+'\\1)',"img");
+                _contents=_contents.replace(reg,"http://resource.a0bi.com/marketnew/"+rename.unreved+"?"+rev);
+                return _contents;
+      }
+    }))
+    .pipe(gulp.dest("./dest/"));
+});
+
+gulp.task("makeLocalRevMap",function(){
+  return gulp.src(["./style/**/*.{jpeg,jpg,gif,png}"])
+    .pipe(rev())
+    .pipe(rev.manifest())
+    .pipe(gulp.dest("./"));
 });
 gulp.task("sp",function(cb){
     runSequence("sprite", function() {
         cb();
     });
+});
+
+gulp.task("deploy",function(){
+    gulp.src(["./**/*.{html,mp3,jpg,png,js,css}","!./node_modules/**/*","!./gulpfile.js","!./local/**/*","!./deploy_dir/**/*","!./spritesrc/**/*"]).pipe(gulp.dest("./deploy_dir"))
 })
