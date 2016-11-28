@@ -25,7 +25,7 @@ commander
 		}
 		var source = a[input];
 		if (source) {
-			vfs.src(source.paths,{
+			vfs.src(source.paths.map(v=>v.replace(/\\/g,"/")),{
 				dot:true
 			}).pipe(vfs.dest("./"));
 		} else {
