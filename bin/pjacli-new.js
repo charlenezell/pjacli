@@ -16,11 +16,14 @@ var vfs = require('vinyl-fs');
 var codeBase = __dirname;
 commander
 	.usage('<projectType ...>')
-	.description('创建新项目模板(act01=>[sass,babel,handlebars,sprite])')
+	.description('创建新项目模板(act01=>[sass,babel,handlebars,sprite],\n act01b=>[sass,babel,handlebars,sprite] with browserify bundle')
 	.action(function (input) {
 		var a = {
 			act01: {
-				paths: [path.join(codeBase, "../projects/actsasses6handlerbar/**/*"),"!"+path.join(codeBase, "../projects/actsasses6handlerbar/style/sprites/*")],
+				paths: [path.join(codeBase, "../projects/actsasses6handlerbar/**/*"),"!"+path.join(codeBase, "../projects/actsasses6handlerbar/style/sprites/*")]
+			},
+			act01b:{
+				paths: [path.join(codeBase, "../projects/actsasses6handlerbarbrowserifybundle/**/*"),"!"+path.join(codeBase, "../projects/actsasses6handlerbarbrowserifybundle/style/sprites/*")]
 			}
 		}
 		var source = a[input];

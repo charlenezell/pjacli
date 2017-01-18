@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{{data.T}}</title>
+<meta name="description" content="{{data.D}}" />
+<meta name="keywords" content="{{data.K}}" />
+<link type="text/css" href="http://resource.a0bi.com/resource/style/css.css" rel="stylesheet" />
+<link href="http://resource.a0bi.com/resource/js/nav/commonNav.css" rel="stylesheet" type="text/css" />
+{{#block "topStyle"}}
+
+{{/block}}
+<script type="text/javascript" src="http://resource.a0bi.com/resource/js/lib/jquery-min.js"></script>
+<script type="text/javascript" src="http://resource.a0bi.com/resource/js/nav/in-min.js"></script>
+<script type="text/javascript">
+var ST_startTime=new Date();
+var ST_DOMLoadedTime=ST_LoadTime=0;
+$(function(){
+  ST_DOMLoadedTime=new Date()-ST_startTime;
+});
+$(window).load(function(){
+  ST_LoadTime=new Date()-ST_startTime;
+  /*setDate*/
+  window.setUserModelValue&&setUserModelValue("ST_DOMLoadedTime",ST_DOMLoadedTime);
+  window.setUserModelValue&&setUserModelValue("ST_LoadTime",ST_LoadTime);
+  window.DC_SendUserModelData&&DC_SendUserModelData();
+});
+</script>
+<script type="text/javascript">
+  var g_shareword='{{data.shareWord}}';
+  var g_shareimg='{{data.shareImg}}';
+  var g_sharelink='{{data.shareLink}}';
+</script>
+</head>
+<body>
+  <!--公用导航-->
+  <div id="baseNav"></div>
+  <div class="mainBg">
+  {{#block "mainContent"}}
+  默认
+  {{/block}}
+  </div>
+    <script type="text/javascript" src="http://resource.a0bi.com/resource/js/util/newcommon/util.js"></script>
+    <script type="text/javascript" src="http://resource.a0bi.com/resource/js/util/newcommon/login.js"></script>
+    <script src="http://resource.a0bi.com/resource/js/util/newcommon/common.js"></script>
+    <script src="http://resource.a0bi.com/gwActivity/common/common.js?v=2"></script>
+    <script src="http://resource.a0bi.com/resource/js/plugins/sharerenderer.js"></script>
+    <script type="text/javascript" src="http://www.100bt.com/resource/js/lib/jquery.pagination.js"></script>
+    <script type="text/javascript">
+        window.UEDITOR_HOME_URL = "http://qq.100bt.com/ueditor1.4/";
+        window.UEDITOR_HOME_URL_ISALL=true;
+    </script>
+    <script type="text/javascript" src="http://www.100bt.com/comment/common/commentBase.js"></script>
+    {{#block "bottomScript"}}
+    {{/block}}
+    <script type="text/javascript" src="http://dc.100bt.com/js/dc.js"></script>
+    <script type="text/javascript" src="http://www.100bt.com/resource/js/lib/bdStatistic.js"></script>
+</body>
+</html>
