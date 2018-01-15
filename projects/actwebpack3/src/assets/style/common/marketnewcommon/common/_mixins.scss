@@ -1,0 +1,1168 @@
+@charset "utf-8";
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+
+@mixin when($alias) {
+  @if $alias == mobile {
+    @media (max-width: $mobileBreakPointWidth) {
+      @content;
+    }
+  }
+  @if $alias == pc {
+    @media (min-width: ($mobileBreakPointWidth + 1px)) {
+      @content;
+    }
+  }
+  @if $alias == pcnew{
+    @if &{//存在上下文就unshift
+      @include unshiftClass(".html--inpc"){
+        @content;
+      };
+    } @else{//否则是直接套一个类在外面
+      .html--inpc {
+          @content;
+      }
+    }
+  }
+  @if $alias == pcmain {
+    @media (max-width: $pcMainWidth) {
+      @content;
+    }
+  }
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+//2个等级的字体
+
+@mixin setfontfamily($type) {
+  @if $type == 1 {
+    font-family: $fontFamily_normal;
+  }
+
+  @if $type == 2 {
+    font-family: $fontFamily_special;
+  }
+}
+
+@mixin sethlhSame($height){
+  height:$height;
+  line-height:$height;
+}
+
+@mixin sethlh($type){
+  @if $type == 1 {
+    height:$fontSize_small * 2;
+    line-height:$fontSize_small * 2;
+    @include when(mobile) {
+      height:$fontSize_smallrem * 2;
+      line-height:$fontSize_smallrem * 2;
+    }
+  }
+
+  @if $type == 2 {
+    height: $fontSize_normal * 2;
+    line-height: $fontSize_normal * 2;
+
+    @include when(mobile) {
+      height: $fontSize_normalrem * 2;
+      line-height: $fontSize_normalrem * 2;
+    }
+  }
+
+  @if $type == 3 {
+    height: $fontSize_normal2 * 2;
+    line-height: $fontSize_normal2 * 2;
+
+    @include when(mobile) {
+      height: $fontSize_normal2rem * 2;
+      line-height: $fontSize_normal2rem * 2;
+    }
+  }
+
+  @if $type == 4 {
+    height: $fontSize_title_normal * 2;
+    line-height: $fontSize_title_normal * 2;
+
+    @include when(mobile) {
+      height: $fontSize_title_normalrem * 2;
+      line-height: $fontSize_title_normalrem * 2;
+    }
+  }
+
+
+  @if $type == 5 {
+    height: $fontSize_title_large * 2;
+    line-height: $fontSize_title_large * 2;
+
+    @include when(mobile) {
+      height: $fontSize_title_largerem * 2;
+      line-height: $fontSize_title_largerem * 2;
+    }
+  }
+}
+
+//5个等级的字体大小
+@mixin setfontsize($type,$force:false) {
+  @if $type == 1 {
+    font-size: #{$fontSize_small}(if($force,#{"!important"},#{""}));
+
+    @include when(mobile) {
+      font-size: #{$fontSize_small}(if($force,#{"!important"},#{""}));
+      font-size: #{$fontSize_smallrem}(if($force,#{"!important"},#{""}));
+    }
+  }
+
+  @if $type == 2 {
+    font-size: #{$fontSize_normal}(if($force,#{"!important"},#{""}));
+
+    @include when(mobile) {
+      font-size: #{$fontSize_normal}(if($force,#{"!important"},#{""}));
+      font-size: #{$fontSize_normalrem}(if($force,#{"!important"},#{""}));
+    }
+  }
+
+  @if $type == 3 {
+    font-size: #{$fontSize_normal2}(if($force,#{"!important"},#{""}));
+
+    @include when(mobile) {
+      font-size: #{$fontSize_normal2}(if($force,#{"!important"},#{""}));
+      font-size: #{$fontSize_normal2rem}(if($force,#{"!important"},#{""}));
+    }
+  }
+
+  @if $type == 4 {
+    font-size: #{$fontSize_title_normal}(if($force,#{"!important"},#{""}));
+
+    @include when(mobile) {
+      font-size: #{$fontSize_title_normal}(if($force,#{"!important"},#{""}));
+      font-size: #{$fontSize_title_normalrem}(if($force,#{"!important"},#{""}));
+    }
+  }
+
+
+  @if $type == 5 {
+    font-size: #{$fontSize_title_large}(if($force,#{"!important"},#{""}));
+
+    @include when(mobile) {
+      font-size: #{$fontSize_title_large}(if($force,#{"!important"},#{""}));
+      font-size: #{$fontSize_title_largerem}(if($force,#{"!important"},#{""}));
+    }
+  }
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin toe($isscroll:false) {
+  //文字省略?
+  overflow: hidden !important;
+  @if $isscroll==true {overflow-x: scroll !important;}
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+
+@mixin toeline($linenumb:1) {
+  display:block;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  -webkit-line-clamp: $linenumb;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin textCenter {
+  //文字居中
+  text-align: center !important;
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin blockCenter {
+  //块居?
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin siteColorConfig {
+  @include when(mobile){
+    ::-webkit-scrollbar-track-piece{
+      background-color:#fff;
+      -webkit-border-radius:3;
+    }
+    ::-webkit-scrollbar{
+      width:0px;
+      height:0px;
+    }
+    ::-webkit-scrollbar-thumb{
+      height:1px;
+      background-color:#999;
+      -webkit-border-radius:7px;
+      outline:2px solid #fff;
+      outline-offset:-2px;
+      border: 2px solid #fff;
+    }
+  };
+  ::selection {
+    background: $bgc_selection;
+    color: $color_selectioin;
+  }
+
+  //站点通用配置
+  //链接颜色
+  html{background-color: #fff;}
+  *{
+    outline:none;
+    border:none;
+  }
+  a {
+
+    color: $color_link;
+    text-decoration: none;
+    &:hover {
+      color: $color_link__Hover;
+      text-decoration: underline;
+    }
+  }
+
+  ul, ol, dl {
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  //全局字体和行高设?
+  html {
+    line-height: 1;
+    font-family: $fontFamily_normal;
+
+    @include setfontsize(2);
+  }
+  .justPC{
+  @include when(mobile){
+    display: none!important;
+  };
+}
+
+.justMobileB{
+  @include when(pcnew){
+    display: none!important;
+  };
+  @include when(mobile){
+    display: block;
+  };
+}
+
+.justMobileIB{
+  @include when(pcnew){
+    display: none!important;
+  };
+  @include when(mobile){
+    display: inline-block;
+  };
+}
+.justMobileI{
+  @include when(pcnew){
+    display: none!important;
+  };
+  @include when(mobile){
+    display:inline;
+  };
+}
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin layout-w-1-2 {
+  width: percentage(1 / 2);
+  box-sizing: border-box;
+}
+
+@mixin layout-w-1-3 {
+  width: percentage(1 / 3);
+  box-sizing: border-box;
+}
+
+@mixin layout-w-2-3 {
+  width: percentage(2 / 3);
+  box-sizing: border-box;
+}
+
+@mixin layout-w-1-4 {
+  width: percentage(1 / 4);
+  box-sizing: border-box;
+}
+
+@mixin layout-w-3-4 {
+  width: percentage(3 / 4);
+  box-sizing: border-box;
+}
+
+@mixin layout-w-1-5 {
+  width: percentage(1 / 5);
+  box-sizing: border-box;
+}
+
+@mixin layout-w-2-5 {
+  width: percentage(2 / 5);
+  box-sizing: border-box;
+}
+
+@mixin layout-w-3-5 {
+  width: percentage(3 / 5);
+  box-sizing: border-box;
+}
+
+@mixin layout-w-4-5 {
+  width: percentage(4 / 5);
+  box-sizing: border-box;
+}
+@mixin layout-w-1-6 {
+  width: percentage(1 / 6);
+  box-sizing: border-box;
+}
+@mixin layout-w-1-7 {
+  width: percentage(1 / 7);
+  box-sizing: border-box;
+}
+@mixin layout-w-2-7 {
+  width: percentage(2 / 7);
+  box-sizing: border-box;
+}
+@mixin layout-w-3-7 {
+  width: percentage(3 / 7);
+  box-sizing: border-box;
+}
+@mixin layout-w-2-9 {
+  width: percentage(2 / 9);
+  box-sizing: border-box;
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+//这个可以这样?
+// <div class="ct-container2">容器
+//   <span class="ct-content">！！！！这个必须是span！！！！
+//     <div class="maxwidth400"这个必须是inlineblock如果要自动水平居中的?<h1>Some text</h1><p>But he stole up to us again, and suddenly clapping his hand on my shoulder, said?Did ye see anything looking like men going towards that ship a while ago?"</p></div>
+//   </span><b class="ct-faker"></b>这个必须写出?
+// </div>
+//.ct-container2{@include center-tablecelinline(800,400)}
+//但是如果内容大过一屏的话就只能在大过一屏的大内容块里面居中所以更加通用的弹窗用不了这个东西
+@mixin center-tablecellinline($width, $height) {
+  & {
+    width: if(unitless($width), #{$width}px, $width);
+    height: if(unitless($height), #{$height}px, $height);
+    display: table;
+    text-align: center;
+
+    .ct-content {
+      display: table-cell;
+      vertical-align: middle;
+      *display: inline-block;
+    }
+
+    .ct-faker {
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+
+
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin bgrgba($args...) {
+  @if type-of(nth($args, 1)) == "color" {
+    @at-root{
+      .btbuild_rgba &{
+          background-color: rgba(nth($args, 1), nth($args, 2));
+      }
+      .btbuild_no-rgba &{
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startcolorstr=#{ie-hex-str(rgba(nth($args, 1), nth($args, 2)))},endcolorstr=#{ie-hex-str(rgba(nth($args, 1), nth($args, 2)))});
+      }
+    }
+  }
+
+  @if type-of(nth($args, 1)) == "number" {
+    @at-root{
+      .btbuild_rgba &{
+        background-color: rgba(nth($args, 1), nth($args, 2), nth($args, 3), nth($args, 4));
+      }
+      .btbuild_no-rgba &{
+        filter: progid:DXImageTransform.Microsoft.gradient(enabled='true',startcolorstr=#{ie-hex-str(rgba(nth($args, 1), nth($args, 2), nth($args, 3), nth($args, 4)))},endcolorstr=#{ie-hex-str(rgba(nth($args, 1), nth($args, 2), nth($args, 3), nth($args, 4)))});
+      }
+    }
+  }
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin float($side) {
+  float: unquote($side);
+  display: inline-block;
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin clearfix {
+  display: block;
+  *zoom: 1;
+
+  &:after {
+    content: "\20";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    overflow: hidden;
+  }
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  filter: alpha(opacity = $opacity * 100);
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+@mixin min-height($height) {
+  min-height: $height;
+  height: auto !important;
+  _height: $height;
+}
+
+@mixin min-width($width) {
+  min-width: $width;
+  width: auto !important;
+  _width: $width;
+}
+
+@mixin max-height($height) {
+  max-height: $height;
+  height: auto !important;
+  _height: $height;
+}
+
+@mixin max-width($width) {
+  max-width: $width;
+  width: auto !important;
+  _width: $width;
+}
+
+//                                                __
+//                                               /\ \__
+//   ____     __   _____      __     _ __    __  \ \ ,_\    __
+//  /',__\  /'__`\/\ '__`\  /'__`\  /\`'__\/'__`\ \ \ \/  /'__`\
+// /\__, `\/\  __/\ \ \L\ \/\ \L\.\_\ \ \//\ \L\.\_\ \ \_/\  __/
+// \/\____/\ \____\\ \ ,__/\ \__/.\_\\ \_\\ \__/.\_\\ \__\ \____\
+//  \/___/  \/____/ \ \ \/  \/__/\/_/ \/_/ \/__/\/_/ \/__/\/____/
+
+// div.logo {
+//   background: url("logo.png") no-repeat;
+//   @include image-2x("logo2x.png", 100px, 25px);
+// }
+
+// outputing
+
+// div.logo {
+//   background: url("logo.png") no-repeat;
+// }
+// @media (min--moz-device-pixel-ratio: 1.3),
+//        (-o-min-device-pixel-ratio: 2.6 / 2),
+//        (-webkit-min-device-pixel-ratio: 1.3),
+//        (min-device-pixel-ratio: 1.3),
+//        (min-resolution: 1.3dppx) {
+//         div.logo {
+//             background-image: url("logo2x.png");
+//             background-size: 100px 25px;
+//         }
+// }
+@mixin image-2x($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6 / 2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+// .pop {
+//   background-color: red;
+//   position: relative;
+//   float: left;
+//   padding: 20px;
+
+//   .hello {
+//     top: -8px;
+
+//     @include triangle(up, 8px, red, white);
+//   }
+// }
+
+// <div class="pop"><div class="hello"></div>hellomynameis</div>
+
+@mixin triangle($direction, $size: 6px, $color: #222, $color2: transparent) {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  border:0;
+  @if $direction == "up" {
+    border-bottom: $size solid $color;
+    border-left: (3 / 4 * $size) solid $color2;
+    border-right: (3 / 4 * $size) solid $color2;
+  }
+  @else if $direction == "down" {
+    border-top: $size solid $color;
+    border-left: (3 / 4 * $size) solid $color2;
+    border-right: (3 / 4 * $size) solid $color2;
+  }
+  @else if $direction == "left" {
+    border-top: (3 / 4 * $size) solid $color2;
+    border-bottom: (3 / 4 * $size) solid $color2;
+    border-right: $size solid $color;
+  }
+  @else if $direction == "right" {
+    border-top: (3 / 4 * $size) solid $color2;
+    border-bottom: (3 / 4 * $size) solid $color2;
+    border-left: $size solid $color;
+  }
+}
+
+@mixin imgAlpha($absurl){
+  background:url($absurl) no-repeat;
+  _background-image:none;
+  _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='$absurl');
+}
+
+@mixin abstl($t:0,$l:0){position: absolute!important;top:$t;left:$l;right:auto!important;bottom:auto!important;}
+@mixin abstr($t:0,$r:0){position: absolute!important;top:$t;left:auto!important;right:$r;bottom:auto!important;}
+@mixin absbl($l:0,$b:0){position: absolute!important;top:auto!important;left:$l;right:auto!important;bottom:$b;}
+@mixin absbr($b:0,$r:0){position: absolute!important;top:auto!important;left:auto!important;right:$r;bottom:$b;}
+
+@mixin wh($w,$h) {
+  width: $w;
+  height: $h
+}
+@mixin h-lh($h){
+  height: $h;
+  line-height: $h
+}
+@mixin mainWidget($width:1000px){
+  width: $width;margin: 0 auto;
+}
+@mixin pa{position:absolute;}
+@mixin pr{position:relative;}
+@mixin toh{white-space:nowrap;
+  text-overflow:ellipsis;
+  -o-text-overflow:ellipsis;
+  overflow: hidden;}
+@mixin wbk{
+  word-break: break-all;
+  word-wrap: break-word;
+}
+@mixin dibWrap{font-size:0;*word-spacing:-1px;}
+@mixin dib{font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align:top;
+	 display: inline-block;
+    *display:inline;
+    *zoom:1;
+	}
+//日后补上sass生成sprite获取位置的办?
+// @mixin mobileicon($iconwidth,$iconheight,$destWidth,$destHeight){
+//     $height:(50/12/2);
+//     $width:(50/12/2) * (115/41);
+//     $xscale:$width;
+//     line-height: $height;
+//     @include wh($width#{rem},$height#{rem});
+//     background-size:$xscale#{rem} auto;
+// }
+
+@mixin noinlinespace {
+    font-size: 0;
+    -webkit-text-size-adjust:none;
+}
+
+@function comcalmobile($n,$baseOnWidth){
+  //设计最小屏幕为320px，同时最小字号浏览器限制为12px
+  $designMinWidth:320;
+  $designMinFontSize:12;
+  @return ($n/$designMinFontSize/($baseOnWidth/$designMinWidth))*1rem;
+}
+
+@function calmobile($n) {
+  @return #{($n/12/2)}rem;
+}
+
+@function ncalmobile($n) {
+  @return comcalmobile($n,640);
+}
+
+
+@function nc750($n){
+ @return comcalmobile($n,750);
+}
+// @debug(comcalmobile(28.125,750));
+// @debug(ncalmobile(24));
+
+@mixin fontsetting($size,$lineheight,$msize:null,$mlineheight:null,$color:null,$hcolor:null) {
+  font-size: if(unitless($size),#{$size}px,$size);/*pc端支持有没有px单位*/
+  @if (unitless($lineheight) and $lineheight >= 12){
+    //假定没有单位且小于12有可能用行高倍数来做so...
+    line-height: #{$lineheight}px;
+  }@else{
+    line-height: $lineheight;
+  }
+  @if ($msize != null and $mlineheight != null) {
+    @include when(mobile){
+      font-size: calmobile($msize);/*m只支持无单位*/
+      @if ($mlineheight >= 24){
+        //假定没有单位且小于12有可能用行高倍数来做so...
+        line-height: calmobile($mlineheight);
+      }@else{
+        line-height: $mlineheight;
+      }
+    };
+  }
+  @if ($color != null) {
+    color:$color;
+  }
+  @if ($hcolor != null) {
+    &:hover{color:$hcolor;}
+  }
+}
+@function getbgpct($iconlength,$imgposition,$imglength){
+  @if $imgposition == 0 {
+    @return 0;
+  }
+  @return percentage(($imgposition)/($imglength - $iconlength));
+}
+@mixin bgp($imgw,$imgh,$ofx,$ofy,$bgw,$bgh) {
+  background-position:-$ofx#{px} -$ofy#{px};//ie某些认不出两位小数的精确度百分比so
+  @include when(mobile){
+    background-position:getbgpct($imgw,$ofx,$bgw) getbgpct($imgh,$ofy,$bgh);
+    background-size:percentage($bgw / $imgw) percentage($bgh / $imgh);
+  };
+}
+
+@function defaultPx($n){
+  @return if(unitless($n),#{$n}px,$n);
+}
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+@mixin pop01($basezIndex:1000,$overlayOpacity:0.5,$overlayColor:#000){
+//   <table class="hello__pop">
+//     <tr>
+//         <td class="hello__pop__td">
+//             <div class="hello__main">helloworld</div>
+//             <div class="hello__overlay"></div>
+//         </td>
+//     </tr>
+// </table>
+  &__pop{
+      width:100%;
+      height:100%;
+      @include overlay;
+      z-index: $basezIndex;
+  }
+  &__td{
+      vertical-align: middle;
+      text-align: center;
+          border: 0;
+  }
+  &__main{
+    display: inline-block;
+    position: relative;
+    z-index:2;
+  }
+  &__overlay{
+    @include overlay(false);
+    @include opacity($overlayOpacity);
+    z-index:1;
+    background-color: $overlayColor;
+  }
+}
+
+@mixin overlay($sss:true){
+  position: fixed;
+  _position: absolute;
+  width:100%;
+  height:100%;
+  _height:expression(document.compatMode&&'CSS1Compat'==document.compatMode?document.documentElement.clientHeight:document.body.clientHeight);
+  top:0;
+  left:0;
+  @if($sss){
+     _top:expression(new Function('return document.documentElement.scrollTop').call());
+  }
+}
+@mixin posfix($x,$y,$coodinary:0){
+  $percent:if(unit($y)=="%","wh*"(strip-unit($y))/100,strip-unit($y));
+  position: fixed;
+  _position:absolute; /* position fixed for IE6 */
+  @if($coodinary==0){
+    left:defaultPx($x);
+    top:defaultPx($y);
+    _top:expression(new Function('return document.documentElement.scrollTop+#{$percent}').call(this));
+  }@else if($coodinary==1){
+    right:defaultPx($x);
+    top:defaultPx($y);
+    _top:expression(new Function('return document.documentElement.scrollTop+#{$percent}').call(this));
+  }@else if($coodinary==2){
+    right:defaultPx($x);
+    bottom:defaultPx($y);
+    _bottom:auto;
+    _top:expression(new Function('return document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight-#{$percent}').call(this));
+  }@else{
+    left:defaultPx($x);
+    bottom:defaultPx($y);
+    _bottom:auto;
+    _top:expression(new Function('return document.documentElement.scrollTop+document.documentElement.clientHeight-this.clientHeight-#{$percent}').call(this));
+  }
+}
+@mixin bgp_newabs($imgw,$imgh,$ofx,$ofy,$bgw,$bgh) {
+  // background-position:-$ofx#{px} -$ofy#{px};//ie某些认不出两位小数的精确度百分比so
+  // @include when(mobile){
+  background-position:#{-$ofx}px #{-$ofy}px;
+  // };
+}
+@mixin bgp_new($imgw,$imgh,$ofx,$ofy,$bgw,$bgh) {
+  // background-position:-$ofx#{px} -$ofy#{px};//ie某些认不出两位小数的精确度百分比so
+  // @include when(mobile){
+    background-position:getbgpct($imgw,$ofx,$bgw) getbgpct($imgh,$ofy,$bgh);
+    background-size:percentage($bgw / $imgw) percentage($bgh / $imgh);
+  // };
+}
+@mixin addCommonInnerBorder($width:1px,$color:#000,$opacity:0.1){
+  &{
+    position: relative;
+  }
+  &:after{
+    content:" ";
+    position: absolute;
+    top: $width;
+    left: $width;
+    right: $width;
+    bottom: $width;
+    outline: $width solid;
+    @include unshiftClass(".btbuild_rgba"){
+      outline-color: rgba($color, $opacity);
+    };
+    @include unshiftClass(".btbuild_no-rgba"){
+      outline-color:lighten($color, 50%);
+    };
+  }
+}
+@mixin addCommonImgBrighter(){
+  &{
+    position: relative;
+  }
+  &:before{
+    display: none;
+    content:" ";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-image: url(http://resource.a0bi.com/marketnew/common/dest/scss/img_s/alpha20.png);
+  }
+  &:hover:before{
+    display: block;
+  }
+}
+@mixin animated ($duration:1s,$count:infinite){
+    animation-duration: $duration;
+    animation-fill-mode: both;
+    animation-iteration-count: $count;
+}
+
+@mixin animateEffectBounce($scale:-10px,$duration:500ms) {
+  animation: btnHoverEffect_float#{$scale}#{$duration} 1 $duration ease-in-out;
+  @at-root{
+    @keyframes btnHoverEffect_float#{$scale}#{$duration}{
+      0%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY($scale);
+      }
+      60%{
+        transform:translateY(0px);
+      }
+      85%{
+        transform:translateY($scale / 2);
+      }
+      100%{
+        transform:translateY(0px);
+      }
+    }
+  }
+}
+
+@mixin animatePulse_scale($scale:1.01,$duration:2s) {
+    @include animated($duration:$duration);
+    animation-name: pulse;
+  @at-root{
+      @keyframes pulse {
+        0% {
+            transform: scale3d(1,1,1)
+        }
+        50% {
+            transform: scale3d($scale,$scale,$scale)
+        }
+        100% {
+            transform: scale3d(1,1,1)
+        }
+    }
+  }
+}
+
+//                             ___    ___    __
+//                           /\_ \  /\_ \  /\ \
+//   ____    ___   _ __   ___\//\ \ \//\ \ \ \ \____     __     _ __
+//  /',__\  /'___\/\`'__\/ __`\\ \ \  \ \ \ \ \ '__`\  /'__`\  /\`'__\
+// /\__, `\/\ \__/\ \ \//\ \L\ \\_\ \_ \_\ \_\ \ \L\ \/\ \L\.\_\ \ \/
+// \/\____/\ \____\\ \_\\ \____//\____\/\____\\ \_,__/\ \__/.\_\\ \_\
+//  \/___/  \/____/ \/_/ \/___/ \/____/\/____/ \/___/  \/__/\/_/ \/_/
+
+
+@mixin scrollbar-button($char,$color) {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='12px' width='12px'><text x='0' y='12' fill='#{$color}' font-size='12'>#{$char}</text></svg>");
+}
+
+@mixin scrollbar-buttons($color) {
+    &:vertical:decrement {
+        @include scrollbar-button("▲", $color);
+    }
+    &:vertical:increment {
+        @include scrollbar-button("▼", $color);
+    }
+    &:horizontal:decrement {
+        @include scrollbar-button("◄", $color);
+    }
+    &:horizontal:increment {
+        @include scrollbar-button("►", $color);
+    }
+}
+
+@mixin initscrollbar-buttons{
+  ::-webkit-scrollbar-button {
+     & {
+        background-repeat: no-repeat;
+        height: 15px;
+        width: 15px;
+        @include scrollbar-buttons(#535353);
+
+        &:vertical:decrement {
+            background-position: 0 -2px;
+        }
+        &:vertical:increment {
+            background-position: 0 1px;
+        }
+        &:horizontal:decrement {
+            background-position: 0 -2px;
+        }
+        &:horizontal:increment {
+            background-position: 3px -2px;
+        }
+
+
+        &:hover,
+        &:focus {
+            background-color: #c0c0c0;
+        }
+        &:active {
+            background-color: #7a7a7a;
+            @include scrollbar-buttons(#cbcbcb);
+        }
+    }
+
+    // Dark scrollbars
+    .platform-win.dark & {
+        @include scrollbar-buttons(#ababab);
+
+        &:hover,
+        &:focus {
+            background-color: #595959;
+        }
+        &:active {
+            background-color: #a9a9a9;
+            @include scrollbar-buttons(#000);
+        }
+    }
+}
+}
+
+@mixin addValignHelper() {
+  .valignHelper{
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+@mixin dimension($w,$h,$mw:null,$mh:null) {
+    width:if(unitless($w),$w#{px},$w);
+    height:if(unitless($h),$h#{px},$h);
+    @if($mw!=null){
+      @include when(mobile){
+        width:if(unitless($mw),calmobile($mw),$mw);
+        height:if(unitless($mh),calmobile($mh),$mh);
+      };
+    }
+}
+
+@mixin pos($args...){
+  /**
+   * 4个重载
+   * pos(topleftrightbottom);
+   * pos(top,left);
+   * pos(x,y,zeropoint);
+   * pos(top,right,botom,left);
+   * usage:pos(20px)
+   *       pos(300px,200px)
+   *       pos(20px,40px,br);
+   *       pos(40px,auto,auto 30px);
+   */
+  $temp_pos_length:length($args);
+  $oneParam:if($temp_pos_length>=1,nth($args, 1),null);
+  $twoParam:if($temp_pos_length>=2,nth($args, 2),null);
+  $threeParam:if($temp_pos_length>=3,nth($args,3),null);
+  $fourParam:if($temp_pos_length>=4,nth($args, 4),null);
+  @if($temp_pos_length==1){
+    top:$oneParam;
+    right:$oneParam;
+    bottom:$oneParam;
+    left:$oneParam;
+  }@else if($temp_pos_length==2){
+    top:$oneParam;
+    left:$twoParam;
+  }@else if($temp_pos_length==3){
+    @if($threeParam==tl){
+      top:$oneParam;
+      left:$twoParam;
+    }@else if($threeParam==tr){
+      top:$oneParam;
+      right:$twoParam;
+    }@else if($threeParam==bl){
+      bottom:$oneParam;
+      left:$twoParam;
+    }@else if($threeParam==br){
+      bottom:$oneParam;
+      right:$twoParam;
+    }
+  }@else if($temp_pos_length==4){
+    top:$oneParam;
+    right:$twoParam;
+    bottom:$threeParam;
+    left:$fourParam;
+  }
+}
+
+@mixin commonmorebtn() {
+    display: block;
+    height:calmobile(50);
+    @include fontsetting(14,14,24,50,#f0f0f0);
+    background-color: #ccc;
+    text-align: center;
+    margin:calmobile(40) 0 calmobile(30);
+}
+@mixin unshiftClass($prefixClass,$isAnd:false) {
+  @at-root{
+  @if ($isAnd==true) {
+    #{$prefixClass}#{&}{
+      @content;
+    }
+  }@else{
+    #{$prefixClass} &{
+        @content;
+      }
+    }
+}
+}
+@mixin vw() {
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    *writing-mode: tb-rl;/* IE 写法 */
+    unicode-bidi : bidi-override;
+}
+
+@mixin addMiddleLine($color:red) {
+  position: relative;
+  &:before{
+    content:"";
+    top:50%;
+    left:0;
+    right:0;
+    height:1px;
+    background-color: $color;
+    position: absolute;
+    z-index: 1;
+  }
+}
+@mixin mts($margin:0) {
+  @include when(mobile){
+    margin-top: $margin#{px};
+  };
+  @include when(pcnew){
+    margin-top: calmobile($margin);
+  };
+}
+@mixin mrs($margin:0) {
+  @include when(mobile){
+    margin-right: $margin#{px};
+  };
+  @include when(pcnew){
+    margin-right: calmobile($margin);
+  };
+}
+@mixin mbs($margin:0) {
+  @include when(mobile){
+    margin-bottom: $margin#{px};
+  };
+  @include when(pcnew){
+    margin-bottom: calmobile($margin);
+  };
+}
+@mixin pbs($margin:0) {
+  @include when(mobile){
+    padding-bottom: $margin#{px};
+  };
+  @include when(pcnew){
+    padding-bottom: calmobile($margin);
+  };
+}
+
+
+@mixin glasseffect01 {
+  @include unshiftClass(".csstransitions"){
+    overflow: hidden;
+    position: relative;
+    // {transition:500ms all ease;}
+
+    &:after {
+      content: "";
+      position: absolute;
+      height: 0px;
+      width: 500px;
+      transform: rotate(45deg);
+      top: 100%;
+      left: 0;
+      opacity: 0.5;
+      transform-origin: 0 0;
+      background-color: #fff;
+      transition: 500ms all ease;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      opacity: 0.3;
+      display: none;
+    }
+    &:hover:after{
+      height:500px;
+      top:-100%;
+      opacity:0;
+    }
+  };
+}

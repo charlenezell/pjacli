@@ -1,0 +1,16 @@
+@import "common/_mixins.scss";
+@import "../../assets/style/common/_mixins.scss";
+.commonIcons{
+    &--28{
+        width:c720(28);
+        height:c720(28);
+    }
+    &--40{
+        width:c720(44);
+        height:c720(44);
+    }
+    &--48{
+        width:c720(48);
+        height:c720(48);
+    }
+}

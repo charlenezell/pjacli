@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="49px" height="48px" viewBox="1 0.5 49 48" enable-background="new 1 0.5 49 48" xml:space="preserve">
+<defs>
+</defs>
+<rect id="_x3C_切片_x3E__58_" fill="none" width="48" height="48"/>
+<g id="矩形_2_副本_1_">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M22.7,6c-2.8,0-5,2.4-5,5.4l0,32.6h10l0-32.6
+			C27.7,8.4,25.5,6,22.7,6z M37.7,14c-2.8,0-5,2.3-5,5.2V44h10V19.2C42.7,16.3,40.5,14,37.7,14z M7.7,21c-2.2,0-4,2-4,4.4V44h8V25.4
+			C11.7,23,9.9,21,7.7,21z"/>
+	</g>
+</g>
+<g id="圆角矩形_2_1_">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFDD1F" d="M25.7,6c-2.8,0-5,2.4-5,5.4l0,32.6h10l0-32.6
+			C30.7,8.4,28.5,6,25.7,6z"/>
+	</g>
+</g>
+<g id="矩形_3_1_">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#A3DC36" d="M40.7,14c-2.8,0-5,2.3-5,5.2V44h10V19.2
+			C45.7,16.3,43.5,14,40.7,14z"/>
+	</g>
+</g>
+<g id="矩形_2_1_">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#1FB3FF" d="M10.7,21c-2.2,0-4,2-4,4.4V44h8V25.4C14.7,23,12.9,21,10.7,21z"
+			/>
+	</g>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M3.7,38.9V43h10V25.5c0-2.5-2.8-4.5-5-4.5c-2.2,0-5,2-5,4.5l0,9.3"/>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#222222" stroke-width="2" stroke-miterlimit="10" d="M27.7,43
+	V10.7c0-2.6-2.8-4.7-5-4.7c-2.2,0-5,2.1-5,4.7V43H27.7z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M42.7,33.4v-4.1 M42.7,26.6l0-8c0-2.5-2.8-4.6-5-4.6s-5,2-5,4.6V43h10v-6.8"/>
+</svg>

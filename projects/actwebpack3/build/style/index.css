@@ -1,0 +1,55 @@
+.promoteType03Item {
+  padding: 15px 0;
+  border-bottom: 1px solid #efefef; }
+  .promoteType03Item__t {
+    font-size: 16px;
+    color: #666;
+    height: 34px;
+    line-height: 34px;
+    background-image: url(assets/component_commonIcons_sprite_img1_3f4e.png);
+    width: 103px;
+    height: 136px;
+    background-position: -216px -141px; }
+  .promoteType03Item__wicons {
+    overflow: scroll; }
+  .promoteType03Item__icons {
+    margin-top: 9px;
+    white-space: nowrap; }
+  .promoteType03Item__icon {
+    display: inline-block;
+    margin-right: 29px;
+    text-align: center;
+    text-decoration: none; }
+  .promoteType03Item__icon_wi {
+    width: 70px;
+    height: 70px; }
+    .promoteType03Item__icon_wi:after {
+      color: #fff; }
+    .promoteType03Item__icon_wi {
+      position: relative; }
+    .promoteType03Item__icon_wi:after {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 1px solid;
+      border-radius: 70px; }
+      .btbuild_rgba .promoteType03Item__icon_wi:after {
+        border-color: rgba(0, 0, 0, 0.1); }
+      .btbuild_no-rgba .promoteType03Item__icon_wi:after {
+        border-color: gray; }
+  .promoteType03Item__icon_i {
+    width: 100%;
+    height: 100%;
+    border-radius: 70px;
+    overflow: hidden; }
+  .promoteType03Item__icon_t {
+    text-align: center;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    color: #222; }
+
+/*# sourceMappingURL=index.css.map*/

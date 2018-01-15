@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <c:set var="pageInjectStyle">
+        <%=
+        htmlWebpackPlugin.files.css.map(v=>{
+            return `<link rel="stylesheet" href="${v}">`
+        }).join("")
+        %>
+    </c:set>
+</head>
+<body>
+    <c:set var="pageInjectScript">
+        <%=htmlWebpackPlugin.files.webpackChunkManifest%>
+        <%=
+        htmlWebpackPlugin.files.js.map(v=>{
+            return `<script src="${v}"></script>`
+        }).join("")
+        %>
+    </c:set>
+</body>
+</html>

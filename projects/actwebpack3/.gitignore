@@ -1,0 +1,8 @@
+/node_modules
+/build/*.html
+/typings
+/yarn-error.log
+/env.setting.json
+/temp
+/src/sprite/spritedest
+.eslintrc.js

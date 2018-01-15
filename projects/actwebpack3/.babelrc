@@ -1,0 +1,37 @@
+{
+  "env": {
+    "production": {
+      "presets": [
+        "react", ["env", {
+          "modules": false,
+          // "debug": true,
+          "useBuiltIns": true,
+          "loose": true
+        }]
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "syntax-dynamic-import",
+        "transform-class-properties",
+        "transform-object-rest-spread"
+      ]
+    },
+    "development": {
+      "presets": [
+        "react", ["env", {
+          "modules": false,
+          "loose": true,
+          "useBuiltIns": true
+        }]
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "syntax-dynamic-import",
+        "transform-class-properties",
+        "react-hot-loader/babel",
+        "transform-object-rest-spread"
+      ]
+    }
+  },
+  "compact": false
+}

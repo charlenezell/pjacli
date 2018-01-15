@@ -1,0 +1,45 @@
+@import "common/_mixins.scss";
+@import "../common/_mixins.scss";
+@import "../../../sprite/spritedest/component_commonIcons_sprite_img1.scss";
+.promoteType03Item {
+    padding:c720(30) 0;
+    border-bottom:1px solid #efefef;
+
+    &__t {
+        @include cf01(32,#666);
+        @include lhs(68);
+        @include component_commonIcons_sprite_img1_addfav_new;
+    }
+    &__wicons{
+        overflow: scroll;
+    }
+    &__icons {
+        margin-top: c720(18);
+        white-space: nowrap;
+    }
+    &__icon {
+        display: inline-block;
+        margin-right: c720(58);
+        text-align: center;
+        text-decoration: none;
+    }
+    &__icon_wi {
+        @include sq(c720(140));
+        &:after{
+            color:#fff;
+        }
+        @include addCommonInnerBorder2($radius:c720(140));
+
+    }
+    &__icon_i {
+        width:100%;
+        height:100%;
+        border-radius: c720(140);
+        overflow: hidden;
+    }
+    &__icon_t {
+        text-align: center;
+        @include lhs(56);
+        @include cf01(24,#222);
+    }
+  }

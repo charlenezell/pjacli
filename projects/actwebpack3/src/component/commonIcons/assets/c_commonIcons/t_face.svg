@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="45px" height="44px" viewBox="0.5 0.5 45 44" enable-background="new 0.5 0.5 45 44" xml:space="preserve">
+<defs>
+</defs>
+<rect id="_x3C_切片_x3E__58_" fill-rule="evenodd" clip-rule="evenodd" fill="none" width="44" height="44"/>
+<g id="椭圆_17_副本_4_3_">
+	<g>
+		<circle fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" cx="22" cy="22" r="19"/>
+	</g>
+</g>
+<g id="椭圆_20_1_">
+	<g>
+		<path fill-rule="evenodd" clip-rule="evenodd" fill="#FFDE00" d="M18,17c0-1.1-0.9-2-2-2c-1.1,0-2,0.9-2,2c0,1.1,0.9,2,2,2
+			C17.1,19,18,18.1,18,17z M29,19c1.1,0,2-0.9,2-2c0-1.1-0.9-2-2-2c-1.1,0-2,0.9-2,2C27,18.1,27.9,19,29,19z M15,25c0,4.4,4,8,9,8
+			c5,0,9-3.6,9-8H15z"/>
+	</g>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="none" stroke="#222222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" d="
+	M8.1,10.3C8.8,9.5,9.6,8.7,10.5,8 M13.9,5.7c2.4-1.2,5.1-1.9,8-1.9c9.9,0,18,8.1,18,18c0,3.2-0.8,6.2-2.3,8.8 M34.2,35.1
+	c-3.2,3-7.5,4.8-12.3,4.8c-9.9,0-18-8.1-18-18c0-2.7,0.6-5.2,1.6-7.5"/>
+<g>
+	<path fill="#222222" d="M30.9,25c0,4.4-4,8-9,8s-9-3.6-9-8H30.9 M32.9,23h-2h-18h-2v2c0,5.5,4.9,10,11,10s11-4.5,11-10V23L32.9,23z
+		"/>
+</g>
+<g>
+	<path fill="#222222" d="M15,15c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S13.9,15,15,15 M15,13c-2.2,0-4,1.8-4,4s1.8,4,4,4s4-1.8,4-4
+		S17.2,13,15,13L15,13z"/>
+</g>
+<g>
+	<path fill="#222222" d="M28,15c1.1,0,2,0.9,2,2s-0.9,2-2,2s-2-0.9-2-2S26.9,15,28,15 M28,13c-2.2,0-4,1.8-4,4s1.8,4,4,4s4-1.8,4-4
+		S30.2,13,28,13L28,13z"/>
+</g>
+</svg>
