@@ -1,7 +1,13 @@
 @charset "utf-8";
-@import "mixins";
-@import "variables";
-
+@import "common/mixins";
+@import "common/variables";
+@import "./sprites/_order.png.scss";
 body{
 background-color:red;
+@include toe;
+background:url("./image/test.png");
+}
+.hello{
+    @include order_1_new;
+    display: block;
 }
